@@ -5,7 +5,7 @@
 
 O mini projeto foi desenvolvido durante um *code drops* promovido pelo canal da *Rocketseat* no youtube. O objetivo é criar validações customizadas utilizando **HTML**, **CSS** e **JavaScript**. Ele consiste em um pequeno forms que possui dois inputs de tipos diferentes, e que, portanto, podem gerar erros diferentes.
 
-![exmplo](forms_custom_validation)
+![exmplo](forms_custom_validation.gif)
 
 ## O que eu aprendi :book:
 
