@@ -1,12 +1,13 @@
-const fields = document.querySelectorAll("[required]"); // Pega as tagas que tem como atributo o required
+const fields = document.querySelectorAll("[required]"); // Pega as tags que tem como atributo o required
 
 function validateField(field) {
     // lógica para verificar se existem erros
     function verifyErrors() {
         let foundError = false;
+        
 
         for (let error in field.validity) {
-            // O for in consegue iterar sobre elementos do objeto 
+            // O for in consegue iterar sobre elementos do objeto retornando a key dele 
             // se não for customError então verifica se tem erro
             if (field.validity[error] && !field.validity.valid) {
                 foundError = error;
@@ -36,11 +37,11 @@ function validateField(field) {
         const spanError = field.parentNode.querySelector("span.error"); // Primeiramente sobe para o elemeto pai, depois seleciona o span que tem a classe error
 
         if (message) {
-            spanError.classList.add("active"); // Poderia ter utilizado o toggle
+            spanError.classList.add("active"); 
             spanError.innerHTML = message;
 
         } else {
-            spanError.classList.remove("active"); // Poderia ter utilizado o toggle
+            spanError.classList.remove("active"); 
             spanError.innerHTML = ""
         }
 
@@ -76,17 +77,17 @@ function customValidation(event) {
 
 for (field of fields) {
     field.addEventListener("invalid", (event) => {
+        // O event invalid pode ser aplicado quando existe tags com atributos require ele é ativado quando o campo está inválido
         event.preventDefault(); // Faz com que não mostre a bolha de error
         customValidation(event);
     });
-    // O event invalid pode ser aplicado quando existe tags com atributos required
-    // Ele é ativado quando o campo está inválido
-    field.addEventListener("blur", customValidation);
+    field.addEventListener("blur", customValidation); 
 }
 
 
 
 document.querySelector("form").addEventListener("submit", (event) => {
+    // Essa função será acionada quando o form for devidamente enviado
     console.log("Enviar o formulário");
     event.preventDefault(); // Faz com que o formulário não seja submetido.
 });
