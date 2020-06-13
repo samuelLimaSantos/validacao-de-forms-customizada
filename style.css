@@ -1,0 +1,98 @@
+:root {
+    --primary-color: #fd951f;
+    --bg-color: #130f0d;
+    --text-color: #f0f0f5;
+    --light-color: rgba(255, 255, 255, 0.04);
+    /*Criação de variáveis*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /*Reseta as configurações iniciais do navegador*/
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+form {
+    background-color: var(--light-color);
+    width: 100%;
+    max-width: 500px;
+    margin: 32px auto;
+    padding: 32px 64px;
+    display: flex;
+    flex-direction: column;
+}
+
+form h2 {
+    margin-bottom: 32px;
+}
+
+div.input {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+input, button {
+    /* reset appearance*/ 
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    padding: 16px 0;
+
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    outline: none;
+
+    background-color: transparent;
+    color: var(--text-color);
+    font-size: 1em;
+}
+
+button {
+    margin-top: 16px;
+    background-color: var(--primary-color);
+}
+
+input ~ label {
+    /* O ~ serve para referenciar o irmão da primeira tag*/
+    position: absolute;
+    top: 16px;
+    left: 0;
+    color: rgba(255, 255, 255, 0.384);
+    transition: .4s; 
+}
+
+input:focus ~ label, input:valid ~ label {
+    /*Responsável por empurrar o label para cima quando foca no input
+    O valid serve para manter a configuração quando o campo for válido (n tiver erro)*/
+    transform: translateY(-24px);
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+}
+
+span.error {
+    display: flex;
+    padding: 0;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.input span.error.active {
+    border: 1px solid red;
+    padding: 0.4em;
+}
